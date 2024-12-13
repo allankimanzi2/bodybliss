@@ -1,11 +1,17 @@
 import React, { useState } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 export default function Booking() {
+  const location = useLocation();
+  const navigate = useNavigate();
+  const { serviceName, categoryName, price } = location.state || {};
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     phone: '',
-    service: '',
+    service: serviceName && categoryName ? `${serviceName} - ${categoryName}` : '',
+    price: price || '',
     date: '',
     time: '',
   });
@@ -16,7 +22,8 @@ export default function Booking() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    alert('Your booking has been submitted!');
+    alert(`Your booking for ${formData.service} has been submitted!`);
+    navigate('/'); // Redirect to the homepage or another page after submission
   };
 
   return (
@@ -50,19 +57,28 @@ export default function Booking() {
           onChange={handleChange}
           required
         />
-        <select
-          name="service"
-          className="w-full p-2 mb-4 border rounded"
-          value={formData.service}
-          onChange={handleChange}
-          required
-        >
-          <option value="">Select a Service</option>
-          <option value="Hair Laser Treatments">Hair Laser Treatments</option>
-          <option value="Hydrafacial">Hydrafacial</option>
-          <option value="Hydrojelly Facial">Hydrojelly Facial</option>
-          <option value="Peel Perfection">Peel Perfection</option>
-        </select>
+        <div className="mb-4">
+          <label className="block mb-1 font-medium">Selected Service:</label>
+          {serviceName && categoryName ? (
+            <p className="p-2 border rounded bg-gray-100">
+              {formData.service} - <span className="font-bold">{formData.price}</span>
+            </p>
+          ) : (
+            <select
+              name="service"
+              className="w-full p-2 border rounded"
+              value={formData.service}
+              onChange={handleChange}
+              required
+            >
+              <option value="">Select a Service</option>
+              <option value="Hair Laser Treatments">Hair Laser Treatments</option>
+              <option value="Hydrafacial">Hydrafacial</option>
+              <option value="Hydrojelly Facial">Hydrojelly Facial</option>
+              <option value="Peel Perfection">Peel Perfection</option>
+            </select>
+          )}
+        </div>
         <input
           type="date"
           name="date"
@@ -86,3 +102,4 @@ export default function Booking() {
     </div>
   );
 }
+

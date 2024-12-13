@@ -1,26 +1,31 @@
 import React from 'react';
 import ServiceCard from '../components/ServiceCard';
 
+import hairLaserImg from '../assets/images/hairlaser.png';
+import hydrafacialImg from '../assets/images/hydrafacial.png';
+import hydrojellyImg from '../assets/images/hydrojelly.png';
+import peelImg from '../assets/images/peeling.png';
+
 const services = [
   {
-    title: "Hair Laser Treatments",
+    title: "Body Bliss Laser Treatments",
     description: "Effective and safe treatments for smooth, hair-free skin.",
-    image: "/images/laser.jpg",
+    image: hairLaserImg,
   },
   {
-    title: "Hydrafacial",
+    title: "Body Bliss Facial",
     description: "Deeply cleanse and rejuvenate your skin for a radiant glow.",
-    image: "/images/hydrafacial.jpg",
+    image: hydrafacialImg,
   },
   {
-    title: "Hydrojelly Facial",
+    title: "Body Bliss Massage",
     description: "Nourish your skin with this soothing and refreshing treatment.",
-    image: "/images/hydrojelly.jpg",
+    image: hydrojellyImg,
   },
   {
-    title: "Peel Perfection",
+    title: "Body Bliss Skin Tag Removal",
     description: "Gentle exfoliation to reveal brighter, healthier skin.",
-    image: "/images/peel.jpg",
+    image: peelImg,
   },
 ];
 
@@ -41,3 +46,4 @@ export default function Services() {
     </div>
   );
 }
+

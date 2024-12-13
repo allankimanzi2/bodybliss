@@ -9,9 +9,10 @@ body, h1, h2, h3, p, ul, li, a {
 
 /* Global font and color settings */
 body {
-  font-family: 'Arial', sans-serif;
-  background-color: #f9f9f9;
-  color: #333;
+  font-family: ''-apple-system', 'BlinkMacSystemFont', 'San Francisco', 
+               'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;;
+  background-color: #e6e6a7;
+  color: #070101;
   line-height: 1.6;
 }
 
@@ -23,18 +24,36 @@ a {
 
 a:hover {
   text-decoration: underline;
-  color: #ff007f; /* Bright pink hover effect */
+  color: #e4cdd8; /* Bright pink hover effect */
 }
 
-/* Headers */
+/* Header styles */
 header {
-  background-color: #ff007f; /* Pink header background */
-  color: white;
-  padding: 1rem;
+  transition: background-color 0.3s ease;
 }
 
-header h1 {
-  font-size: 1.5rem;
+header:hover {
+  background-color: #dfe0d1; /* Darker shade on hover */
+}
+
+nav a {
+  position: relative;
+}
+
+nav a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 100%;
+  height: 2px;
+  background: #050007; /* Pink underline */
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+nav a:hover::after {
+  transform: scaleX(1);
 }
 
 /* Footer */
@@ -65,7 +84,7 @@ main {
 }
 
 .bg-pink-500 {
-  background-color: #ff007f;
+  background-color: #854385;
 }
 
 .text-white {
@@ -73,11 +92,11 @@ main {
 }
 
 .bg-gray-100 {
-  background-color: #f7f7f7;
+  background-color: #c9e4e1;
 }
 
 .bg-gray-800 {
-  background-color: #333;
+  background-color: #0f0c0c;
 }
 
 .text-gray-600 {
@@ -119,4 +138,12 @@ main {
 
 .gap-6 {
   gap: 1.5rem;
+}
+
+/* Logo styles */
+.logo {
+  width: 580px; /* Adjust the width as needed */
+  height: auto; /* Maintain aspect ratio */
+  display: block;
+  margin: 0 auto; /* Center the logo */
 }

@@ -26,9 +26,9 @@ export default function Footer() {
             Email: <a href="mailto:info@bodybliss.com" className="hover:text-pink-500">info@bodybliss.com</a>
           </p>
           <p className="text-sm">
-            Phone: <a href="tel:+1234567890" className="hover:text-pink-500">+1 234 567 890</a>
+            Phone: <a href="tel:+" className="hover:text-pink-500">+254</a>
           </p>
-          <p className="text-sm">Location: 123 Wellness Lane, Skintown</p>
+          <p className="text-sm">Location: Covo Mall, Lavington</p>
         </div>
       </div>
       <div className="text-center mt-6 text-sm border-t border-gray-700 pt-4">
